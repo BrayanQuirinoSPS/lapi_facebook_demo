@@ -174,13 +174,15 @@ function handleMessage(sender_psid, message) {
     }
 
     if(message.text === "Hola"){
-    //send greetings message
-    callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
+        //send greetings message
+        callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
+        return;
     }else if(message.text === "Gracias" || message.text === "Adios" || message.text==='adios'){
         //send bye message
-        callSendAPI(sender_psid,'Adiós!');
+        return;
     }else  if(message.text === '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
         callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
+        return;
     }
     
     let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye"];
