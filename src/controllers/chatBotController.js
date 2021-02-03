@@ -189,7 +189,7 @@ function handleMessage(sender_psid, message) {
            callSendAPI(sender_psid,`Bienvenido!`);
        }
     }
-    if(messmessage.attachments[0].payloadage === "Hola"){
+    if(message.attachments[0].payloadage === "Hola"){
         //send greetings message
         callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
     }else if(message.attachments[0].payload === "Gracias" || entityChosen == "Adios" || entityChosen=='adios'){
