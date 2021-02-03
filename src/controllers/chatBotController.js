@@ -165,18 +165,8 @@ function firstTrait(nlp, name) {
 function handleMessage(sender_psid, message) {
     //handle message for react, like press like button
     // id like button: sticker_id 369239263222822
-    function toString(o) {
-        Object.keys(o).forEach(k => {
-          if (typeof o[k] === 'object') {
-            return toString(o[k]);
-          }
-          
-          o[k] = '' + o[k];
-        });
-        
-        return o;
-      }
-    callSendAPI(sender_psid, toString(message));
+
+    callSendAPI(sender_psid, message.text);
     if( message && message.attachments && message.attachments[0].payload){
         callSendAPI(sender_psid, "Gracias por probar nuestra demo!");
         callSendAPIWithTemplate(sender_psid);
