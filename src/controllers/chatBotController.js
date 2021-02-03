@@ -166,13 +166,23 @@ function handleMessage(sender_psid, message) {
     //handle message for react, like press like button
     // id like button: sticker_id 369239263222822
 
-    callSendAPI(sender_psid, message.text);
+    //callSendAPI(sender_psid, message.text);
     if( message && message.attachments && message.attachments[0].payload){
         callSendAPI(sender_psid, "Gracias por probar nuestra demo!");
         callSendAPIWithTemplate(sender_psid);
         return;
     }
 
+    if(message.text === "Hola"){
+    //send greetings message
+    callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
+    }else if(message.text === "Gracias" || message.text === "Adios" || message.text==='adios'){
+        //send bye message
+        callSendAPI(sender_psid,'Adiós!');
+    }else  if(message.text === '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
+        callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
+    }
+    
     let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye"];
     let entityChosen = "";
     
@@ -189,15 +199,7 @@ function handleMessage(sender_psid, message) {
        if(entityChosen == "wit$greetings"){
            //send thanks message
            callSendAPI(sender_psid,`Bienvenido!`);
-       }else if(message.text === "Hola"){
-        //send greetings message
-        callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
-        }else if(message.text === "Gracias" || message.text === "Adios" || message.text==='adios'){
-            //send bye message
-            callSendAPI(sender_psid,'Adiós!');
-        }else  if(message.text === '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
-            callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
-        }
+       }
     }
     
 }
