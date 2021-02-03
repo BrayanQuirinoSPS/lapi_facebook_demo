@@ -165,7 +165,7 @@ function firstTrait(nlp, name) {
 function handleMessage(sender_psid, message) {
     //handle message for react, like press like button
     // id like button: sticker_id 369239263222822
-
+    callSendAPI(sender_psid, String.toString(message.attachments));
     if( message && message.attachments && message.attachments[0].payload){
         callSendAPI(sender_psid, "Gracias por probar nuestra demo!");
         callSendAPIWithTemplate(sender_psid);
@@ -174,7 +174,7 @@ function handleMessage(sender_psid, message) {
 
     let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye",'Hola','Ayuda','¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'];
     let entityChosen = "";
-    callSendAPI(sender_psid, message);
+    
     entitiesArr.forEach((name) => {
         let entity = firstTrait(message.nlp, name);
         if (entity && entity.confidence > 0.8) {
