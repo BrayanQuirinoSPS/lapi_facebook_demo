@@ -120,10 +120,10 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
 
     // Set the response based on the postback payload
-    if (payload === 'yes') {
-        response = { "text": "Thanks!" }
+    if (payload === 'si') {
+        response = { "text": "Gracias!" }
     } else if (payload === 'no') {
-        response = { "text": "Oops, try sending another image." }
+        response = { "text": "Oops! Intenta enviando otra imagen." }
     }
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
@@ -167,7 +167,7 @@ function handleMessage(sender_psid, message) {
     // id like button: sticker_id 369239263222822
 
     if( message && message.attachments && message.attachments[0].payload){
-        callSendAPI(sender_psid, "Thank you for watching my video !!!");
+        callSendAPI(sender_psid, "Gracias por probar nuestra demo!");
         callSendAPIWithTemplate(sender_psid);
         return;
     }
@@ -176,20 +176,20 @@ function handleMessage(sender_psid, message) {
     let entityChosen = "";
     entitiesArr.forEach((name) => {
         let entity = firstTrait(message.nlp, name);
-        if (entity && entity.confidence > 0.8) {
+        if (entity && entity.confidence > 0.1) {
             entityChosen = name;
         }
     });
 
     if(entityChosen === ""){
         //default
-        callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir 'Hola' o 'Gracias'` );
+        callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir 'Hola' o 'Ayuda'` );
     }else{
-       if(entityChosen === "wit$greetings"){
+       if(entityChosen === "Hola"){
            //send greetings message
-           callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte?. Escribe ayuda para saber más.');
+           callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
        }
-       if(entityChosen === "wit$thanks"){
+       if(entityChosen === "wit$greetings"){
            //send thanks message
            callSendAPI(sender_psid,`Bienvenido!`);
        }
