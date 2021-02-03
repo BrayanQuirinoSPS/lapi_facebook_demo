@@ -175,9 +175,9 @@ function handleMessage(sender_psid, message) {
 
     if(message.text === "Hola"){
         //send greetings message
-        callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
+        callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe "Ayuda" para saber más.');
         return;
-    }else if(message.text === "Gracias" || message.text === "Adios" || message.text==='adios'){
+    }else if(message.text === "Ayuda" || message.text === "ayuda"){
         //send bye message
         return;
     }else  if(message.text === '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
@@ -196,11 +196,11 @@ function handleMessage(sender_psid, message) {
     });
     if(entityChosen === ""){
         //default
-        callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir 'Hola' o 'Ayuda'` );
+        callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir "Hola" o "Ayuda"` );
     }else{  
-       if(entityChosen == "wit$greetings"){
+       if(entityChosen == "wit$bye"){
            //send thanks message
-           callSendAPI(sender_psid,`Bienvenido!`);
+           callSendAPI(sender_psid,`Adiós!`);
        }
     }
     
