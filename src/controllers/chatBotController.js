@@ -180,11 +180,11 @@ function handleMessage(sender_psid, message) {
             entityChosen = name;
         }
     });
-
+    console.log(message)
     if(entityChosen === ""){
         //default
         callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir 'Hola' o 'Ayuda'` );
-    }else if(entityChosen == "Hola"){
+    }else if(message == "Hola"){
         //send greetings message
         callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
     }else if(entityChosen == "Gracias" || entityChosen == "Adios" || entityChosen=='adios'){
