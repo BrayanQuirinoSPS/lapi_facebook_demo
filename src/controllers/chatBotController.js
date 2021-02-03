@@ -187,13 +187,10 @@ function handleMessage(sender_psid, message) {
         if(message.text === "Hola"){
             //send greetings message
             callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe "Ayuda" para saber más.');
-            return;
         }else if(message.text === "Ayuda" || message.text === "ayuda"){
             //send bye message
-            return;
         }else  if(message.text === '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
             callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
-            return;
         }else{
             callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir "Hola" o "Ayuda"` );
         }
