@@ -183,7 +183,7 @@ function handleMessage(sender_psid, message) {
 
     if(entityChosen === ""){
         //default
-        callSendAPI(sender_psid,`No logramos entender tu mensaje, intenta decir hola o gracias` );
+        callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir 'Hola' o 'Gracias'` );
     }else{
        if(entityChosen === "wit$greetings"){
            //send greetings message
@@ -217,8 +217,8 @@ let callSendAPIWithTemplate = (sender_psid) => {
                     "template_type": "generic",
                     "elements": [
                         {
-                            "title": "Puedes hacer ver tus resultados en el siguiente enlace",
-                            "image_url": "https://lapiweb.com.mx/Facturacion/login.php",
+                            "title": "CONSULTA DE RESULTADOS ONLINE",
+                            "image_url": "https://www.lapiweb.com.mx/webnew/imgs/logo.jpg",
                             "subtitle": "Resultados",
                             "buttons": [
                                 {
