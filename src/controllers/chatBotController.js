@@ -174,6 +174,7 @@ function handleMessage(sender_psid, message) {
 
     let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye",'Hola','Ayuda','¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'];
     let entityChosen = "";
+    callSendAPI(sender_psid, message);
     entitiesArr.forEach((name) => {
         let entity = firstTrait(message.nlp, name);
         if (entity && entity.confidence > 0.8) {
