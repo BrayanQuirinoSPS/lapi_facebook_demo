@@ -172,7 +172,7 @@ function handleMessage(sender_psid, message) {
         return;
     }
 
-    let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye" ];
+    let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye",'Hola','Ayuda','¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'];
     let entityChosen = "";
     entitiesArr.forEach((name) => {
         let entity = firstTrait(message.nlp, name);
@@ -187,17 +187,17 @@ function handleMessage(sender_psid, message) {
        if(entityChosen == "wit$greetings"){
            //send thanks message
            callSendAPI(sender_psid,`Bienvenido!`);
-       }
-    }
-    if(message.attachments[0].payloadage === "Hola"){
+       }else if(message.attachments[0].payloadage === "Hola"){
         //send greetings message
         callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
-    }else if(message.attachments[0].payload === "Gracias" || entityChosen == "Adios" || entityChosen=='adios'){
-        //send bye message
-        callSendAPI(sender_psid,'Adiós!');
-    }else  if(message.attachments[0].payload === '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
-        callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
+        }else if(message.attachments[0].payload === "Gracias" || entityChosen === "Adios" || entityChosen==='adios'){
+            //send bye message
+            callSendAPI(sender_psid,'Adiós!');
+        }else  if(message.attachments[0].payload === '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
+            callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
+        }
     }
+    
 }
 
 let callSendAPIWithTemplate = (sender_psid) => {
