@@ -183,19 +183,22 @@ function handleMessage(sender_psid, message) {
 
     if(entityChosen === ""){
         //default
-        callSendAPI(sender_psid,`The bot is needed more training, try to say "thanks a lot" or "hi" to the bot` );
+        callSendAPI(sender_psid,`No logramos entender tu mensaje, intenta decir hola o gracias` );
     }else{
        if(entityChosen === "wit$greetings"){
            //send greetings message
-           callSendAPI(sender_psid,'Hi there! This bot is created by Hary Pham. Watch more videos on HaryPhamDev Channel!');
+           callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte?. Escribe ayuda para saber más.');
        }
        if(entityChosen === "wit$thanks"){
            //send thanks message
-           callSendAPI(sender_psid,`You 're welcome!`);
+           callSendAPI(sender_psid,`Bienvenido!`);
        }
         if(entityChosen === "wit$bye"){
             //send bye message
-            callSendAPI(sender_psid,'bye-bye!');
+            callSendAPI(sender_psid,'Adiós!');
+        }
+        if(entityChosen==='¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
+            callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
         }
     }
 }
@@ -214,14 +217,14 @@ let callSendAPIWithTemplate = (sender_psid) => {
                     "template_type": "generic",
                     "elements": [
                         {
-                            "title": "Want to build sth awesome?",
-                            "image_url": "https://www.nexmo.com/wp-content/uploads/2018/10/build-bot-messages-api-768x384.png",
-                            "subtitle": "Watch more videos on my youtube channel ^^",
+                            "title": "Puedes hacer ver tus resultados en el siguiente enlace",
+                            "image_url": "https://lapiweb.com.mx/Facturacion/login.php",
+                            "subtitle": "Resultados",
                             "buttons": [
                                 {
                                     "type": "web_url",
-                                    "url": "https://bit.ly/subscribe-haryphamdev",
-                                    "title": "Watch now"
+                                    "url": "https://lapiweb.com.mx/Facturacion/login.php",
+                                    "title": "Resultados"
                                 }
                             ]
                         }
