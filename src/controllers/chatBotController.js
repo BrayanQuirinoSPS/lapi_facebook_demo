@@ -185,19 +185,19 @@ function handleMessage(sender_psid, message) {
         //default
         callSendAPI(sender_psid,`No logro entender tu mensaje, intenta decir 'Hola' o 'Ayuda'` );
     }else{
-       if(entityChosen === "Hola"){
+       if(entityChosen == "Hola"){
            //send greetings message
            callSendAPI(sender_psid,'Hola! ¿Cómo podemos ayudarte? Escribe ayuda para saber más.');
        }
-       if(entityChosen === "wit$greetings"){
+       if(entityChosen == "wit$greetings"){
            //send thanks message
            callSendAPI(sender_psid,`Bienvenido!`);
        }
-        if(entityChosen === "wit$bye"){
+        if(entityChosen == "wit$bye"){
             //send bye message
             callSendAPI(sender_psid,'Adiós!');
         }
-        if(entityChosen==='¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
+        if(entityChosen == '¿CÓMO SE PUEDE REALIZAR UN CONVENIO CON LAPI?'){
             callSendAPI(sender_psid,'Si te interesa adicionar beneficios para la salud de los colaboradores de tu empresa, envía un mensaje a la dirección de e-mail convenios@lapi.com.mx y se te brindará asesoría al respecto.')
         }
     }
